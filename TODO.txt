@@ -6,3 +6,5 @@
 - bring over importer API
 - create exporter UI
 - bring over exporter API
+
+- Have Bintray put this on the JCenter public repo (?)
