@@ -1,0 +1,8 @@
+
+- publish to jcenter repo
+- unit tests of all code
+
+- bring in importer ui
+- bring over importer API
+- create exporter UI
+- bring over exporter API
