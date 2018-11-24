@@ -1,5 +1,4 @@
 
-- publish to jcenter repo
 - unit tests of all code
 
 - bring in importer ui
