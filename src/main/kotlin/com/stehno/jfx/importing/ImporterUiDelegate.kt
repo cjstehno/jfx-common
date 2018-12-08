@@ -15,14 +15,14 @@
  */
 package com.stehno.jfx.importing
 
-import com.stehno.jfx.Context
 import com.stehno.jfx.EventId
+import com.stehno.jfx.ViewResolver
 import javafx.scene.control.Dialog
 import javafx.stage.DirectoryChooser
 import javafx.stage.FileChooser
 import java.io.File
 
-class ImporterUiDelegate(private val context: Context, private val eventId: EventId, private val label: String) {
+class ImporterUiDelegate(private val viewResolver: ViewResolver, private val eventId: EventId, private val label: String) {
 
     fun importFile() {
         val selectedFile = FileChooser().apply { title = "Import $label File" }.showOpenDialog(null)
@@ -41,7 +41,7 @@ class ImporterUiDelegate(private val context: Context, private val eventId: Even
     }
 
     private fun importWithProgress(selectedDirectory: File) {
-        val viewAndController = context.viewAndController<Dialog<Void>, ImportProgressDialogController>("/ui/import_progress_dialog.fxml")
+        val viewAndController = viewResolver.viewAndController<Dialog<Void>, ImportProgressDialogController>("/ui/import_progress_dialog.fxml")
         viewAndController.second.load(selectedDirectory, eventId)
         viewAndController.first.showAndWait()
     }
