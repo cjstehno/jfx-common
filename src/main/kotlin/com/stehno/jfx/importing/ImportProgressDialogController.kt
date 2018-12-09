@@ -15,7 +15,6 @@
  */
 package com.stehno.jfx.importing
 
-import com.stehno.jfx.EventId
 import javafx.application.Platform
 import javafx.scene.control.ButtonType
 import javafx.scene.control.Dialog
@@ -36,7 +35,7 @@ class ImportProgressDialogController(private val imageResource: String, private 
         importProgressDialog.dialogPane.lookupButton(ButtonType.CLOSE).isDisable = true
     }
 
-    fun load(file: File, eventId: EventId) {
+    fun load(file: File, eventId: String) {
         Platform.runLater {
             val files = when (file.isDirectory) {
                 true -> file.listFiles(FileFilter { !it.isDirectory }).toList()

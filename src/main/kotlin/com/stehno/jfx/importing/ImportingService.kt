@@ -15,9 +15,7 @@
  */
 package com.stehno.jfx.importing
 
-import com.stehno.jfx.Event
 import com.stehno.jfx.EventBus
-import com.stehno.jfx.EventId
 import java.io.File
 
 class ImportingService(private val eventBus: EventBus) {
@@ -30,7 +28,7 @@ class ImportingService(private val eventBus: EventBus) {
 
     fun importer(file: File) = importers.find { imp -> imp.canImport(file) }
 
-    fun complete(eventId: EventId) {
-        eventBus.publish(Event(eventId))
+    fun complete(eventId: String) {
+        eventBus.publish(eventId)
     }
 }
